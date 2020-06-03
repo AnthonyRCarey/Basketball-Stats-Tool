@@ -1,28 +1,19 @@
-# Import player data
 import constants
 
-# Clean up the player information
-def player_info(player):
-    # Create a new empty dictionary
-    player_info = {}
-    # Bring over player name to new list
-    player_info['name'] = player['name']
-    # Bring over player guardians to new list
-    player_info['guardians'] = player['guardians']
-    # Convert height to an interger
-    player_info['height'] = int(player['height'].replace(' inches', ''))
-    # Convert experience to a boolean value
-    if player['experience'] == 'YES':
-        player_info['experience'] = True
-    else:
-        player_info['experience'] = False
-    # Return new player info
-    return player_info
+
+def begin_app():
+    print('BASTEKBALL TEAM STATS TOOL\n')
+    print('---- MENU ----\n')
+    print('Here are your choices:')
+    print('\nDisplay Team Stats:')
+    for team in constants.TEAMS:
+        print(f'Enter {constants.TEAMS.index(team) + 1} for {team}')
+    print('\nAny other key - Quit')
+    choice = input('Enter an option:\n > ')
+    try:
+        return int(choice) - 1
+    except ValueError:
+        return - 1
 
 
-# Create a clean_data function
-
-# Create a balance_teams function
-
-
-# Display stats
+begin_app()
